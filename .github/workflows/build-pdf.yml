@@ -1,0 +1,35 @@
+name: Build template
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  registry_package:
+
+jobs:
+  build-template:
+    name: Build template
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/moderncv/debian-texlive-docker:main
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build pdf
+        run: latexmk -pdflua ./template.tex
+
+      - name: Upload pdf
+        uses: actions/upload-artifact@v2
+        with:
+          name: template.pdf
+          path: ./template.pdf
+
+      - name: Upload log
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: template.log
+          path: ./template.log
