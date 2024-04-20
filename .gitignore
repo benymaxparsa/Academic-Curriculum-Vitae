@@ -316,3 +316,4 @@ TSWLatexianTemp*
 
 *.idea
 *.DS_Store
+/TexpadSnapshots
