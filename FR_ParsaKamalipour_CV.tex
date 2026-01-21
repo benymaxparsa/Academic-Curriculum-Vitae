@@ -1,0 +1,378 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2015 Xavier Danaux (xdanaux@gmail.com), 2020-2021 moderncv maintainers (github.com/moderncv).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+\newcommand{\CVNote}{\today}
+
+\documentclass[10pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{banking}                             % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+\moderncvcolor{burgundy}                               % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% adjust the page margins
+\usepackage[scale=0.89]{geometry}
+% \usepackage[scale=0.77]{geometry}
+%\setlength{\footskip}{136.00005pt}                 % depending on the amount of information in the footer, you need to change this value. comment this line out and set it to the size given in the warning
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvheadnamewidth}{10cm}            % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+%\setlength{\footskip}{136.00005pt}
+
+% font loading
+% for luatex and xetex, do not use inputenc and fontenc
+% see https://tex.stackexchange.com/a/496643
+\ifxetexorluatex
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+\setmathfont{Latin Modern Math}
+\else
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\fi
+\usepackage{MnSymbol}
+% document language
+\usepackage[english]{babel}  % FIXME: using spanish breaks moderncv
+\usepackage{multicol}
+\newcommand{\ts}{\textsuperscript}
+% personal data
+\name{Parsa}{Kamalipour}
+% \title{CV}                               % optional, remove / comment the line if not wanted
+%\born{4 July 1776}                                 % optional, remove / comment the line if not wanted
+\address{Montréal, QC}{Canada}% optional, remove / comment the line if not wanted; the "postcode city" and "country" arguments can be omitted or provided empty
+%\phone[mobile]{+98~(939)~198~5636}                     % optional, remove / comment the line if not wanted; the optional "type" of the phone can be "mobile" (default), "fixed" or "fax"
+%\phone[fixed]{+2~(345)~678~901}
+%\phone[fax]{+3~(456)~789~012}
+\email{parsakamalipour.edu@gmail.com}                               % optional, remove / comment the line if not wanted
+\homepage{benymaxparsa.github.io}                         % optional, remove / comment the line if not wanted
+
+% Social icons
+\social[linkedin]{parsakamalipour}                        % optional, remove / comment the line if not wanted
+%\social[xing]{john\_doe}                           % optional, remove / comment the line if not wanted
+%\social[twitter]{ji\_doe}                             % optional, remove / comment the line if not wanted
+\social[github]{benymaxparsa}                              % optional, remove / comment the line if not wanted
+%\social[gitlab]{jdoe}                              % optional, remove / comment the line if not wanted
+%\social[stackoverflow]{0000000/johndoe}            % optional, remove / comment the line if not wanted
+%\social[bitbucket]{jdoe}                           % optional, remove / comment the line if not wanted
+%\social[skype]{benymax.parsa}                               % optional, remove / comment the line if not wanted
+%\social[orcid]{0000-0003-2546-9676}                  % optional, remove / comment the line if not wanted
+%\social[researchgate]{Parsa-Kamalipour}                        % optional, remove / comment the line if not wanted
+%\social[researcherid]{jdoe}                        % optional, remove / comment the line if not wanted
+%\social[telegram]{BenyMaxParsa}                            % optional, remove / comment the line if not wanted
+%\social[whatsapp]{12345678901}                     % optional, remove / comment the line if not wanted
+%\social[signal]{12345678901}                       % optional, remove / comment the line if not wanted
+%\social[matrix]{@johndoe:matrix.org}               % optional, remove / comment the line if not wanted
+\social[googlescholar]{eBNZsM0AAAAJ}            % optional, remove / comment the line if not wanted
+
+
+%\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% bibliography adjustments (only useful if you make citations in your resume, or print a list of publications using BibTeX)
+%   to show numerical labels in the bibliography (default is to show no labels)
+%\makeatletter\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}\makeatother
+\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+%   to redefine the bibliography heading string ("Publications")
+%\renewcommand{\refname}{Articles}
+
+\usepackage{tikz}
+
+\newcommand{\ExternalLink}{%
+	\tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{%
+		\begin{scope}[x=1ex, y=1ex]
+			\clip (-0.1,-0.1)
+			--++ (-0, 1.2)
+			--++ (0.6, 0)
+			--++ (0, -0.6)
+			--++ (0.6, 0)
+			--++ (0, -1);
+			\path[draw,
+			line width = 0.5,
+			rounded corners=0.5]
+			(0,0) rectangle (1,1);
+		\end{scope}
+		\path[draw, line width = 0.5] (0.5, 0.5)
+		-- (1, 1);
+		\path[draw, line width = 0.5] (0.6, 1)
+		-- (1, 1) -- (1, 0.6);
+	}
+}
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+	%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+	%-----       resume       ---------------------------------------------------------
+	\makecvtitle
+	\vspace*{-15mm}
+
+	%-----------------------------------------------------------------------------------------------------------
+	%-----------------------------------------------------------------------------------------------------------
+\section{Formation}
+	\cventry{Sep 2024--Present}{Maîtrise ès sciences (avec mémoire) en informatique, dirigée par \href{https://users.encs.concordia.ca/~haruty/}{Prof. Hovhannes Harutyunyan \ExternalLink}}{\href{https://www.concordia.ca}{Université Concordia \ExternalLink}}{Montréal, QC, Canada}{}{
+		\begin{itemize}
+			\item \textbf{GPA :} 3.58/4.0
+			\item \textbf{Sujets de recherche :} Détection de communautés, analyse des réseaux sociaux, conception d’algorithmes, théorie des graphes
+%			\item \textbf{Mémoire de maîtrise :} À déterminer (Community Detection on Social Networks).
+%			\item \textbf{Note du projet de fin de baccalauréat :} 20/20 (4.0/4.0)
+%			\item \textbf{Directeur :} Prof. Hovhannes Harutyunyan
+				\end{itemize}} 
+	\cventry{Sep 2018--Jun 2023}{Baccalauréat en génie informatique, dirigé par \href{https://scholar.google.com/citations?user=UNnjGXEAAAAJ&hl=en}{Dre Fahimeh Dabaghi-Zarandi \ExternalLink}}{\href{https://benymaxparsa.github.io/education/VRU}{Université Vali-e-Asr de Rafsanjan \ExternalLink}}{Rafsanjan, Iran}{}{
+		\begin{itemize}
+			\item \textbf{GPA :} 16.26/20.0 \textbf{\textit{ *Diplômé avec distinction}}
+%			\item \textbf{Sujets de recherche :} Détection de communautés, conception d’algorithmes, apprentissage automatique, refactorisation logicielle
+%			\item \textbf{Projet de fin de baccalauréat :} Community detection in complex network based on an improved random algorithm using local and global network information
+%			\item \textbf{Note du projet de fin de baccalauréat :} 20/20 (4.0/4.0)
+				\end{itemize}}  % arguments 3 to 6 can be left empty
+
+	\vspace*{-3mm}
+	\section{Publications}
+%	\subsection{Articles de revues}
+	\begin{itemize}
+		
+		\item \textit{\href{https://benymaxparsa.github.io/publication/p6}{Spider Community Detection: Seeded Geodesic Expansion with Modularity-Guided Refinement and Greedy Merge Matching \ExternalLink}}
+			\begin{itemize}
+				\item H. Harutyunyan, \textbf{Parsa Kamalipour} — \textit{Computers (\textbf{en révision}), 2026}				\end{itemize}
+
+		
+		\item \textit{\href{https://benymaxparsa.github.io/publication/p5}{From Dense Graphs to Meaningful Communities: Assessing Community Quality Using Geodesic Distance Modularity on Metric Backbone-Sparsified Networks \ExternalLink}}
+			\begin{itemize}
+				\item \textbf{Parsa Kamalipour}, H. Harutyunyan — \textit{SNAMS 2025 (\textbf{accepté})}
+				\end{itemize}
+		
+		\item \textit{\href{https://benymaxparsa.github.io/publication/p4}{LLM-Based Code Translation for Cross-Language Refactoring Mining \ExternalLink}}
+			\begin{itemize}
+				\item I. Hemati Moghadam, M. M. Afkhami, V. Zaytsev, M. H. Ashoori, H. Bazmandegan, et \textbf{Parsa Kamalipour}  — \textit{Empirical Software Engineering (\textbf{en révision})}
+				\end{itemize}
+		
+		\item \textit{\href{https://benymaxparsa.github.io/publication/p3}{Extending refactoring detection to Kotlin: A dataset and comparative study \ExternalLink}}
+			\begin{itemize}
+				\item I. Hemati Moghadam, M. M. Afkhami, \textbf{Parsa Kamalipour}, V. Zaytsev — \textit{SANER 2024}, \href{http://dx.doi.org/10.1109/SANER60148.2024.00034}{\textbf{doi}.\ExternalLink}
+				\end{itemize}
+				
+		
+		\item \textit{\href{https://benymaxparsa.github.io/publication/p1}{Community detection in complex network based on an improved random algorithm using local and global network information \ExternalLink}}
+			\begin{itemize}
+				\item F. Dabaghi-Zarandi, \textbf{Parsa Kamalipour} — \textit{Journal of Network and Computer Applications}, 2022. \href{https://doi.org/10.1016/j.jnca.2022.103492}{\textbf{doi}.\ExternalLink}
+				\end{itemize}
+				
+
+	\end{itemize}
+	
+		\vspace*{-2mm}
+
+\section{Expériences}
+	\subsection{Expérience de recherche}
+
+\cventry{Aug 2024 -- Present}
+  {Assistant de recherche diplômé}
+  {\href{https://www.concordia.ca/ginacody/computer-science-software-eng.html}{Algorithms \& Complexity Lab, Université Concordia}}
+  {Montréal, QC, Canada}
+  {Superviseur : Prof. Hovhannes Harutyunyan}
+  {\begin{itemize}
+\item Conçu l’algorithme de détection de communautés \textbf{Spider graph} combinant
+\textbf{expansion géodésique, raffinement guidé par la modularité et appariement glouton par fusion}.
+\item Évalué Spider sur \textbf{14} réseaux réels
+(jusqu’à \textbf{8{,}035 nœuds / 183{,}663 arêtes}) face à \textbf{Leiden, Louvain et Infomap},
+atteignant une amélioration de \textbf{8--15\%} en \textbf{NMI, modularité et F1-score}.
+\item Appliqué le \textbf{metric backbone}, générant en moyenne une \textbf{réduction de 65\% des arêtes},
+et introduit la \textbf{Weighted Average Geodesic Distance Modularity (wGDM)} afin de normaliser et équilibrer le GDM original
+pour l’évaluation de la qualité locale des communautés sur des graphes clairsemés.
+\item Mis en place une chaîne expérimentale reproductible avec des graines aléatoires fixes,
+des implémentations de référence et des scripts d’évaluation automatisés.\end{itemize}}
+
+\vspace*{-3mm}
+\subsection{}
+
+\cventry{Aug 2023 -- Mar 2024}
+  {Collaborateur de recherche (à distance)}
+  {\href{https://www.utwente.nl/en/}{Formal Methods and Tools (FMT) Group, Université de Twente}}
+  {Enschede, Pays-Bas}
+  {Superviseur : Dr. Iman Hemati Moghadam}
+  {\begin{itemize}%
+\item Implémenté l’analyseur \textbf{KotlinCode2Text} et l’a intégré au cadre \textbf{RefDetect} pour la détection automatisée de refactorisations.
+\item Construit deux jeux de données de refactorisation utilisés pour l’évaluation empirique dans l’étude \textit{SANER 2024}.
+\item Amélioré la fiabilité de l’analyse et le temps d’exécution grâce à du débogage ciblé et à des raffinements algorithmiques.
+\item Exploré le \textbf{prompt engineering basé sur des LLM} pour la traduction de code interlangage dans l’extraction de refactorisations.
+  \end{itemize}}
+
+\vspace*{-3mm}
+\subsection{}
+
+\cventry{Aug 2021 -- Mar 2024}
+  {Assistant de recherche de premier cycle}
+  {\href{https://benymaxparsa.github.io/research/Vru-RA}{Département de génie informatique, Université Vali-e-Asr de Rafsanjan}}
+  {Rafsanjan, Iran}
+  {Superviseure : Dre Fahimeh Dabaghi-Zarandi}
+  {\begin{itemize}%
+\item Développé le cadre de détection de communautés \textbf{CRLG} fondé sur un algorithme aléatoire utilisant des informations locales et globales du réseau.
+\item Implémenté un amorçage probabiliste pondéré et une assignation de communautés guidée par la similarité avec fusion heuristique des communautés.
+\item Évalué sur des réseaux réels et les benchmarks GN/LFR, obtenant jusqu’à \textbf{+10\%} d’amélioration par rapport à
+\textbf{LCDR, MOACO, Node2vec-SC, NE-N2V, CDASS et TS} à l’aide de \textbf{NMI, modularité et densité}.
+\end{itemize}}
+	
+\subsection{Expérience d’enseignement}
+
+\cventry{Sep 2024 -- Present}
+  {Auxiliaire d’enseignement aux cycles supérieurs}
+  {\href{https://www.concordia.ca/ginacody.html}{École de génie et d’informatique Gina Cody, Université Concordia}}
+  {Montréal, QC, Canada}
+  {}
+  {\begin{itemize}%
+\item Animé des \textbf{travaux dirigés} et des \textbf{démonstrations en laboratoire}, \textbf{corrigé des travaux et des examens}, et offert du soutien aux étudiants par l’entremise des séances \textbf{Programmer On Duty (POD)}, des heures de bureau et une rétroaction détaillée sur les travaux et projets. Cours :        	\vspace*{-3mm}
+%    \item 
+      \begin{multicols}{2}
+      \begin{itemize}
+        \item COMP 233 : Probability and Statistics for CS (S25,F25)
+        \item COMP 248 : Object-Oriented Programming I (F25,W26)
+        \item COMP 335 : Introduction to Theoretical CS (F24,S25)
+        \item COMP 339 : Combinatorics (F24,F25)
+        \item COMP 348 : Principles of Programming Languages (W25,S25)
+        \item COMP 465 : Design and Analysis of Algorithms (W25)
+        \item COMP 472 : Artificial Intelligence (F25)
+        \item SOEN 363 : Data Systems for Software Eng (W25,F25,W26)
+        \item COEN 311 : Computer Organization and Software (F25,W26)
+        \item COEN 317 : Microprocessor-Based Systems (W26)
+      \end{itemize}
+     \end{multicols}
+  \end{itemize}}
+
+\vspace*{-2mm}
+\subsection{}
+
+\cventry{Mar 2021 -- Jan 2024}
+  {Auxiliaire d’enseignement de premier cycle}
+  {Département de génie informatique, Université Vali-e-Asr de Rafsanjan}
+  {Rafsanjan, Iran}
+  {}
+  {\begin{itemize}
+\item Agi à titre de \textbf{Responsable des auxiliaires d’enseignement (Head TA) et chef de travaux dirigés} pour plusieurs cours fondamentaux en informatique, en encadrant les étudiants, en coordonnant la correction et en collaborant avec le corps professoral pour concevoir des travaux et soutenir des projets étudiants dans divers cours.
+    \item Cours : Data Structures, Algorithms Design, Discrete Mathematics, Operating Systems, Information Retrieval, Software Engineering, Database Systems, Artificial Intelligence, Data Mining.
+  \end{itemize}}
+
+	\vspace*{-3mm}
+	\section{Champs d’intérêt en recherche}
+	\vspace*{-5mm}
+	\begin{multicols}{2}
+	\begin{itemize}
+		\item Conception et analyse d’algorithmes
+		\item Théorie des graphes et ses applications
+%		\item Optimisation combinatoire
+%		\item Algorithmes d’approximation et aléatoires
+		\item Apprentissage automatique et fouille de graphes
+		\item Analyse des réseaux sociaux et réseaux complexes
+	\end{itemize}
+\end{multicols}
+
+
+\vspace*{-7mm}
+
+\section{Distinctions et prix}
+
+\cvitem{2025}{\textbf{Allocation de participation aux conférences et expositions de Concordia} -- Université Concordia}
+\cvitem{2024}{\textbf{Bourse d’études supérieures DRW en informatique} -- Université Concordia \& DRW Company}
+\cvitem{2024}{\textbf{Bourse de mérite de Concordia (bourse d’admission)} -- Université Concordia, Faculté des études supérieures}
+\cvitem{2024}{\textbf{Soutien financier à la recherche (FRS)} -- Faculté de génie et d’informatique de Concordia}
+\cvitem{2023}{\textbf{Prix d’étudiant distingué} -- Décerné parmi tous les étudiants de l’Université Vali-e-Asr}
+%\cvitem{2023}{\textbf{Prix de chercheur de premier cycle} -- Décerné parmi tous les étudiants de premier cycle de l’Université Vali-e-Asr}
+\cvitem{2023}{\textbf{Prix du meilleur chercheur} -- Distinction obtenue parmi tous les étudiants de premier cycle de la province de Kerman}
+%$\filledstar$ \textit{\href{https://benymaxparsa.github.io/honors_and_extra/}{Cliquez ici pour plus d’informations à mon sujet \ExternalLink}}
+
+	\vspace*{-4mm}
+
+\section{Projets sélectionnés}
+
+%\cventry{Spring 2022}{Multiple assignments regarding to the Intro to Data Mining course}{\href{https://benymaxparsa.github.io/projects/DTM-Projects}
+%	{Introduction to Data Mining \ExternalLink}}{}{}{
+%		Data Pre Processing, Apriori Algorithm, Data Visualization, K-Means, Agglomerative Clustering, DBSCAN, K-Nearest Neighbors Algorithm, Decision Tree, Support Vector Machines, Multi-Layer Perceptron
+%	}
+
+\cventry
+{2024}
+{Optimisation des réseaux de neurones de graphes pour une détection de communautés évolutive}
+{\href{https://github.com/Fall2024-MLProjects/CommunityDetection}{Évaluation de stratégies d’entraînement évolutives pour les réseaux de neurones de graphes \ExternalLink}}
+{Montréal}
+{}
+{
+\begin{itemize}
+\item Conçu et implémenté des chaînes de détection de communautés évolutives fondées sur des GNN à l’aide des architectures \textbf{GCN} et \textbf{GraphSAGE} avec entraînement full-batch, échantillonnage de voisins et stratégies de partitionnement de graphes.
+\item Réalisé des expériences approfondies sur les jeux de données \textbf{SBM (1K, 10K)}, \textbf{CORA} et \textbf{Reddit}, démontrant que l’échantillonnage de voisins et le partitionnement de graphes permettent l’entraînement sur de grands graphes là où les méthodes full-batch échouent en raison de contraintes mémoire.
+\item Atteint jusqu’à \textbf{90\% de précision} sur SBM (10K nœuds) avec le partitionnement de graphes tout en réduisant l’empreinte mémoire, et permis l’entraînement évolutif sur Reddit où les méthodes full-batch entraînaient des erreurs de dépassement de mémoire.
+\item Analysé les compromis entre précision, temps d’entraînement et utilisation de la mémoire, fournissant des lignes directrices pratiques pour le déploiement évolutif de GNN dans des réseaux sociaux de grande envergure du monde réel.
+%\item Implémenté des modèles avec PyTorch Geometric, y compris \texttt{GCNConv}, \texttt{GraphSAGEConv}, \texttt{NeighborLoader} et \texttt{ClusterLoader}.
+\end{itemize}
+}
+
+\cventry
+{2024}
+{Algorithmes de flot à coût minimal sur des réseaux source–puits aléatoires}
+{\href{https://github.com/COMP6651-ADT-Project-Fall2024/minimum-cost-flow}{Étude expérimentale d’algorithmes d’optimisation de flot de réseau \ExternalLink}}
+{Montréal}
+{}
+{
+\begin{itemize}
+\item Implémenté l’algorithme \textbf{Successive Shortest Path} à partir de zéro, incluant la construction du graphe résiduel, l’extraction de chemins de coût minimal basée sur Bellman–Ford et la logique d’augmentation de flot.
+\item Conçu et exécuté une évaluation expérimentale à grande échelle sur des \textbf{graphes euclidiens dirigés aléatoires} à travers 28 configurations avec densité ($r$), bornes de capacité et régimes de coût variables.
+\item Comparé les algorithmes \textbf{SSP, Capacity Scaling, Scaling-SSP et Primal–Dual} à l’aide de mesures incluant le coût total, la valeur du flot, le nombre de chemins augmentants, la longueur moyenne des chemins et la longueur proportionnelle des chemins.
+\item Démontré que l’\textbf{algorithme Primal–Dual atteint systématiquement le coût minimal optimal}, tandis que SSP obtient une performance concurrentielle dans les régimes clairsemés et se dégrade dans les graphes denses.
+%\item Construit un cadre automatisé de tests de justesse validant toutes les implémentations à l’aide d’instances de référence calculées manuellement.
+\end{itemize}
+}
+
+\section{Compétences}
+
+
+\begin{tabular}{p{0.23\textwidth} p{0.83\textwidth}}
+
+\textbf{Programmation} &
+Python, C, C++, C\#, Java, MATLAB, Ruby, Unity Engine, Bash, Assembly (x86, ARM), VHDL \\[0pt]
+
+%\textbf{Cadres \& bases de données} &
+% Django, .NET, Unity Engine, PostgreSQL, MySQL, MongoDB, Neo4j \\[2pt]
+
+\textbf{ML \& données} &
+NumPy, Pandas, SciPy, Scikit-learn, PyTorch, Matplotlib, Seaborn, NetworkX, iGraph \\[2pt]
+
+\textbf{Fouille de graphes \newline\& science des réseaux} &
+Community Detection, Link Prediction, Node Classification, Network Embeddings,
+Graph \newline Algorithms, Social Network Analysis, SNAP \& LFR Benchmarks,
+Large-Scale Network Evaluation\\[2pt]
+
+\textbf{Outils \& bases de données} &
+Linux, \LaTeX, Jupyter, Markdown, Obsidian, Git, Docker, PostgreSQL, MySQL, MongoDB, Neo4j \\[2pt]
+
+%\textbf{Génie logiciel} &
+%Refactoring, Debugging, Unit Testing, Agile, Design Patterns, SOLID \\[2pt]
+
+%\textbf{Académique} &
+%Technical Writing, Peer Review, Tutorial Instruction, Grading, Teamwork, Leadership \\
+
+\end{tabular}
+
+
+
+\section{Langues}
+
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l l l}
+\textbf{Persan} : langue maternelle & \textbf{Anglais} : avancé (C1) & \textbf{Français} : intermédiaire inférieur (A2) \\
+\end{tabular*}
+
+\end{document}
+
+
+%% end of file `template.tex'.
